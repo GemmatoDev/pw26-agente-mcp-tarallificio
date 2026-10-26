@@ -1,0 +1,5 @@
+﻿data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
+26/10/2026,Avvio,scelta impresa: ho valutato fornitore IT ma ho scelto tarallificio,0.5,0.4,l'impresa IT era poco coerente con il tema della digitalizzazione dell'impresa,scelta di una PMI manifatturiera alimentare B2B (tarallificio) con tracciabilità di lotto,README.md
+26/10/2026,Avvio,interfaccia + piano,0.5,0.3,la CLI basta per la traccia ma è poco dimostrativa,"interfaccia web per l'uso dell'operatore, runner headless per i test",README.md
+26/10/2026,Avvio,creazione repo GitHub,0.5,0.1,nessuna,,d22e369
+26/10/2026,Avvio,creazione README,0.5,1.2,descrivere il sistema prima di averlo sviluppato,"descritti obiettivi, architettura prevista e stato",README.md
