@@ -3,3 +3,10 @@
 26/10/2026,Avvio,interfaccia + piano,0.5,0.3,la CLI basta per la traccia ma è poco dimostrativa,"interfaccia web per l'uso dell'operatore, runner headless per i test",README.md
 26/10/2026,Avvio,creazione repo GitHub,0.5,0.1,nessuna,,d22e369
 26/10/2026,Avvio,creazione README,0.5,1.2,descrivere il sistema prima di averlo sviluppato,"descritti obiettivi, architettura prevista e stato",README.md
+27/10/2026,Avvio,creazione scheda impresa,0.75,1,"valutazione coerenza dati fittizi, pianificazione funzioni dell'agente","riconteggiato personale, richiamo escluso da agente, modifiche solo con conferma",docs/scheda_impresa.md
+27/10/2026,Avvio,modifica README,0,0.17,titoli non visualizzati correttamente su GitHub,rimosse le barre di escape,README.md
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
