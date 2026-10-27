@@ -1,4 +1,4 @@
-\# Agente LLM per il backoffice di un tarallificio fittizio "GemmaTaralli"
+# Agente LLM per il backoffice di un tarallificio fittizio "GemmaTaralli"
 
 
 
@@ -12,7 +12,7 @@ L'agente quindi consulta il db del mini-CRM tramite i tool di un server MCP e ch
 
 
 
-\## Specifiche tecniche
+## Specifiche tecniche
 
 
 
@@ -24,7 +24,7 @@ I modelli possono essere locali (Ollama) o di un provider con piano gratuito, in
 
 
 
-\## Contesto
+## Contesto
 
 
 
@@ -34,7 +34,7 @@ GemmaTaralli è un'impresa di fantasia e i dati sono simulati.
 
 
 
-\## Stato
+## Stato
 
 
 
@@ -42,7 +42,7 @@ In sviluppo.
 
 
 
-\## Licenza
+## Licenza
 
 
 
