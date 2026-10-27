@@ -1,0 +1,13 @@
+# Decisioni di progetto
+
+| Data | Decisione | Alternative valutate | Motivo |
+|---|---|---|---|
+| 26/10/2026 | Impresa: tarallificio B2B fittizio "GemmaTaralli" | fornitore di servizi IT B2B per PMI, software house verticale (per esempio un gestionale SaaS per attività sportive), produttore di macchine confezionatrici | ho scelto questa impresa perché più coerente con il tema di digitalizzazione d'impresa e perché la tracciabilità del lotto di produzione dà vita a scenari concreti |
+| 26/10/2026 | Interfaccia web + runner headless per i test | solo CLI | la web permette di mostrare tutti i passi del ciclo e la chat con l'agente, mentre il runner ripete gli scenari su più LLM |
+| 26/10/2026 | Linguaggio Python | TypeScript o C# | SDK MCP ufficiale in Python disponibile, conoscenza pregressa acquisita da lavoro |
+| 26/10/2026 | DB SQLite | PostgreSQL | non necessario poiché non è un'app necessariamente scalabile, un singolo file va benissimo |
+| 26/10/2026 | SDK Python ufficiale MCP (pacchetto mcp), trasporto stdio | librerie MCP di terze parti | l'SDK ufficiale è richiesto dalla traccia; stdio è il trasporto più semplice con server e client che girano sulla stessa macchina |
+| 26/10/2026 | Ciclo agentico scritto a mano | LangChain, LangGraph, CrewAI, AutoGen | vietati dalla traccia; il ciclo agentico scritto a mano permette un controllo completo su errori, conferme, arresti e log |
+| 26/10/2026 | Tenere conferma separata dall'interfaccia | conferma gestita dentro la web | lo stesso ciclo funziona con la web interface e con il runner dei test |
+| 27/10/2026 | Modelli locali: qwen3:8b (principale), gemma4:e4b (confronto) | qwen3:14b, llama3.1:8b (troppo datato), Llama 4 Scout scartati poiché non entrano in memoria (Llama 4 Scout) oppure troppo lenti con offload su CPU (qwen3:14b) | entrano negli 8 GB di VRAM della mia RTX 2070 e supportano il tool calling, LLM più grandi con troppi parametri sarebbero troppo lenti |
+| 27/10/2026 | Nessun tool per il richiamo di un lotto | richiamo gestito dall'agente con conferma | senza il tool un errore di modello o una prompt injection non può avviare un richiamo di lotto, un richiamo sbagliato danneggerebbe clienti e profitti aziendali |
