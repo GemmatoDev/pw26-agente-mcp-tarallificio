@@ -1,7 +1,6 @@
 # Scheda di impresa: GemmaTaralli
 
 ## Profilo aziendale
-no
 - Attività: produzione di taralli, vendita solo B2B
 - Sede: Puglia, provincia di Bari
 - Anno di fondazione: 1934, linea industriale dal 2011
