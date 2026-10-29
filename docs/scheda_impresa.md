@@ -25,7 +25,7 @@
 | GT-CP300 | Taralli alla cipolla | 300 g | 9 mesi |
 | GT-FI300 | Taralli al finocchietto | 300 g | 9 mesi |
 | GT-RP300 | Taralli alle cime di rapa | 300 g | 9 mesi |
-| GT-HO1K | Tarallini classici Ho.Re.Ca. | 1 kg | 9 mesi |
+| GT-HO001 | Tarallini classici Ho.Re.Ca. | 1 kg | 9 mesi |
 | GT-EX500 | Taralli classici "Mediterranei" da export | 500 g | 12 mesi |
 
 ## Produzione e logistica

@@ -18,3 +18,7 @@
 | 29/10/2026 | Ruolo contatto come elenco chiuso | ruolo come testo libero | lasciare il testo libero avrebbe potuto produrre varianti che l'agente non riconosce |
 | 29/10/2026 | Ragione sociale del cliente univoca | ragione sociale non univoca | evita il problema dei clienti omonimi |
 | 29/10/2026 | Data scadenza salvata nel lotto | solo shelf life | ridondanza voluta poiché permette di mantenere la scadenza originali dei lotti nel caso la shelf life cambi|
+| 29/10/2026 | Rinominato GT-HO1K in GT-HO001 | GT-HO100, ma si confonde con 100gr | diventa coerente con la scelta nel dizionario dati |
+| 29/10/2026 | Ho deciso di aggiungere 3 check sull'entità ticket: la data di chiusura non può precedere quella di apertura; lo stato è "chiuso" solo se c'è la data di chiusura; la categoria c'è solo nei reclami | nessun vincolo nello schema, controlli solo nel codice | il database rifiuta i dati incoerenti anche se il seed o un tool sbagliano |
+| 29/10/2026 | Ho deciso di garantire due vincoli nel codice invece che nello schema ovvero almeno un lotto per ogni spedizione (seed) e coerenza tra cliente, spedizione e lotto del ticket | trigger SQL | un check controlla solo la riga che si sta inserendo mentre questi vincoli richiedono di consultare altre tabelle; i trigger complicherebbero lo schema senza un vero vantaggio |
+| 29/10/2026 | Categoria obbligatoria per i reclami | categoria facoltativa | oggi i reclami sono spesso incompleti; le cinque categorie coprono tutti i reclami tipici e se manca, l'agente deve chiederla invece di inventarla |

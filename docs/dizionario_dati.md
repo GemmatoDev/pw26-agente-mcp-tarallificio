@@ -47,12 +47,17 @@
 |---|---|---|---|
 | id | intero | sì | - |
 | tipo | testo | sì | reclamo, campionatura, richiesta_documenti |
-| categoria | testo | no | frantumato, ritardo, confezione, etichetta, corpo_estraneo |
+| categoria | testo | si però solo se tipo = reclamo | frantumato, ritardo, confezione, etichetta, corpo_estraneo |
 | priorità | testo | sì |alta, media, bassa|
 | stato | testo | sì | aperto, chiuso, in_lavorazione |
 | descrizione | testo | no | - |
 | aperto il | data | sì | AAAA-MM-GG |
 | chiuso il | data | no | AAAA-MM-GG |
+
+Vincoli tra attributi:
+- chiuso il se presente non deve essere precedente ad aperto il
+- stato = chiuso se e solo se chiuso il è valorizzato
+- categoria valorizzata se e solo se tipo = reclamo
 
 ## SPEDIZIONE
 
