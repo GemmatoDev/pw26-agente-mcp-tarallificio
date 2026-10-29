@@ -1,7 +1,7 @@
 ﻿data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
 26/10/2026,Avvio,scelta impresa: ho valutato fornitore IT ma ho scelto tarallificio,0.5,0.4,l'impresa IT era poco coerente con il tema della digitalizzazione dell'impresa,scelta di una PMI manifatturiera alimentare B2B (tarallificio) con tracciabilità di lotto,README.md
 26/10/2026,Avvio,interfaccia + piano,0.5,0.3,la CLI basta per la traccia ma è poco dimostrativa,"interfaccia web per l'uso dell'operatore, runner headless per i test",README.md
-26/10/2026,Avvio,creazione repo GitHub,0.5,0.1,nessuna,,commit d22e369
+26/10/2026,Avvio,creazione repo GitHub,0.5,0.1,-,,commit d22e369
 26/10/2026,Avvio,creazione README,0.5,1.2,descrivere il sistema prima di averlo sviluppato,"descritti obiettivi, architettura prevista e stato",README.md
 27/10/2026,Avvio,creazione scheda impresa,0.75,1,"valutazione coerenza dati fittizi, pianificazione funzioni dell'agente","riconteggiato personale, richiamo escluso da agente, modifiche solo con conferma",docs/scheda_impresa.md
 27/10/2026,Avvio,modifica README,0.5,0.17,titoli non visualizzati correttamente su GitHub,rimosse le barre di escape,README.md
@@ -10,4 +10,5 @@
 28/10/2026,Back-end,"scrittura cardinalità tra le varie entità, creazione diagramma E/R in notazione Chen",2,4,scegliere la giusta relazione tra l'entità ticket-attività,"scelto (0,1) come cardinalità per semplificare schema e tool. Create due varianti, light/dark",docs/diagrams/schema_ER_light_gemmato_pw26.png --- docs/diagrams/schema_ER_dark_gemmato_pw26.png
 28/10/2026,Back-end,grafica ed export del diagramma,0.25,0.5,problemi dell'esportazione dovuti alla dark-mode di draw.io,cambio tema ed esportazione da toolbar,docs/diagrams/schema_ER_light_gemmato_pw26.png --- docs/diagrams/schema_ER_dark_gemmato_pw26.png
 29/10/2026,Back-end,relazione ticket-spedizione aggiunta al diagramma E/R,0,0.5,ho riflettuto se inserire il collegamento ticket-spedizione nonostante complicasse ulteriormente lo schema,"è stato necessario aggiungere relazione ""concerne"" così che il ticket sia collegabile alla spedizione",docs/diagrams/schema_ER_light_gemmato_pw26.png --- docs/diagrams/schema_ER_dark_gemmato_pw26.png
-29/10/2026,Back-end,modifica decisioni.md per rispecchiare scelta schema E/R,0,0.5,,,docs/decisioni.md
+29/10/2026,Back-end,modifica decisioni.md per rispecchiare scelta schema E/R,0,0.5,-,-,docs/decisioni.md
+29/10/2026,Back-end,creazione dizionario dati delle entità,1,1.5,"scegliere valori liberi o univoci per attributi ragione sociale, numero ddt",scelto univoci per entrambi ma DDT nel formato AAAA/NNNN,docs/dizionario_dati.md

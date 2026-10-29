@@ -15,3 +15,6 @@
 | 28/10/2026 | Ho scelto la relazione spedizione-lotto molti a molti (N:M) | un singolo lotto per spedizione | una spedizione può contenere più lotti e uno stesso lotto può andare anche a più di un cliente |
 | 28/10/2026 | Il lotto può essere facoltativo nel ticket (0,1) | lotto obbligatorio per ogni ticket | i reclami per ritardo e la richiesta di documentazione non riguardano necessariamente un lotto |
 | 29/10/2026 | Ho scelto di collegare i ticket facoltativamente alla spedizione (0,1) | riferimento alla consegna solo nella descrizione del ticket | ritardi e danni possono riguardare una consegna precisa; facendo così, il collegamento permette di cercare i reclami anche per numero di spedizione |
+| 29/10/2026 | Ruolo contatto come elenco chiuso | ruolo come testo libero | lasciare il testo libero avrebbe potuto produrre varianti che l'agente non riconosce |
+| 29/10/2026 | Ragione sociale del cliente univoca | ragione sociale non univoca | evita il problema dei clienti omonimi |
+| 29/10/2026 | Data scadenza salvata nel lotto | solo shelf life | ridondanza voluta poiché permette di mantenere la scadenza originali dei lotti nel caso la shelf life cambi|
