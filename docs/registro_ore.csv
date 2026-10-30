@@ -15,6 +15,3 @@
 29/10/2026,Back-end,revisione dizionario dati e scheda impresa prima di creazione di schema.sql,0,1,codice GT-HO1K non conforme al formato scelto GT-XXNNN; i vincoli del ticket non erano definiti e alcuni vincoli tra le tabelle non esprimibili con 'CHECK',"rinominato in GT-HO001 per rispettare nomenclatura corretta; aggiunti i 3 vincoli al ticket e categoria obbligatoria per i reclami, vincoli tra tabelle delegati a seed e tool crea_ticket",docs/dizionario_dati.md --- docs/decisioni.md --- docs/scheda_impresa.md,
 30/10/2026,Back-end,creazione schema.sql e generazione db,2,2,errori di sintassi nella query di prova che elenca le tabelle,corretto il comando,db/schema.sql,
 30/10/2026,Back-end,allineamento schema.sql col dizionario dati,0,0.5,"mi ero dimenticato di mettere la descrizione del ticket obbligatoria nel dizionario, chiusura prevista non era obbligatoria nello schema e mancavano i 3 vincoli del ticket","descrizione obbligatoria anche nel dizionario, messa chiusura prevista obbligatoria, aggiunti i 3 check: la data di chiusura può mancare ma se c'è non può essere prima dell'apertura, ticket chiuso solo se c'è la data, categoria solo nei reclami",db/schema.sql --- docs/dizionario_dati.md,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
