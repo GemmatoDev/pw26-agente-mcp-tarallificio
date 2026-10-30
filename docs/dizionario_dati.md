@@ -50,7 +50,7 @@
 | categoria | testo | si però solo se tipo = reclamo | frantumato, ritardo, confezione, etichetta, corpo_estraneo |
 | priorità | testo | sì |alta, media, bassa|
 | stato | testo | sì | aperto, chiuso, in_lavorazione |
-| descrizione | testo | no | - |
+| descrizione | testo | sì | - |
 | aperto il | data | sì | AAAA-MM-GG |
 | chiuso il | data | no | AAAA-MM-GG |
 

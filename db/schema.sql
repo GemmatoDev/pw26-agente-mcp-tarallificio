@@ -20,7 +20,7 @@ CREATE TABLE opportunita (
     titolo TEXT NOT NULL,
     valore_stimato REAL NOT NULL CHECK (valore_stimato >= 0),
     stato TEXT NOT NULL CHECK (stato IN ('aperta', 'in_trattativa', 'persa', 'vinta')),
-    chiusura_prevista TEXT
+    chiusura_prevista TEXT NOT NULL
 );
 
 -- UNIQUE, per evitare OMONIMI con i clienti
@@ -55,7 +55,10 @@ CREATE TABLE ticket (
     stato TEXT NOT NULL CHECK (stato IN ('aperto', 'in_lavorazione', 'chiuso')),
     descrizione TEXT NOT NULL,
     aperto_il TEXT NOT NULL,
-    chiuso_il TEXT
+    chiuso_il TEXT,
+    CHECK (chiuso_il IS NULL OR chiuso_il >= aperto_il),
+    CHECK ((stato = 'chiuso') = (chiuso_il IS NOT NULL)),
+    CHECK ((tipo = 'reclamo') = (categoria IS NOT NULL))
 );
 
 --la consegna al cliente, numero ddt unico per identificarla correttamente
