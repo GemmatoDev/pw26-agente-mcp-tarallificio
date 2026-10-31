@@ -2,10 +2,12 @@ import os
 import random
 import sqlite3
 from datetime import date, timedelta
+from pathlib import Path
 
-# linko db e schema
-DB = "db/gemmataralli.db"
-SCHEMA = "db/schema.sql"
+# linko db e schema calcolati dalla posizione del file
+CARTELLA = Path(__file__).resolve().parent
+DB = CARTELLA / "gemmataralli.db"
+SCHEMA = CARTELLA / "schema.sql"
 
 # scelgo un singolo seme per avere la stessa sequenza di dati
 random.seed(27)

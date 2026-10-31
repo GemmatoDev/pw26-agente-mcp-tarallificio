@@ -29,3 +29,5 @@
 | 31/10/2026 | aggiorna_opportunita restituisce anche lo stato precedente | solo lo stato nuovo | serve per mostrare il prima e dopo nella conferma |
 | 31/10/2026 | Versione dell'SDK MCP fissata a 2.3.0 in requirements.txt | versione non fissata | la 2.x è diversa dalla 1.x usata nei tutorial online (MCPServer invece di FastMCP); fissando la versione chi clona il repo installa la stessa che ho usato |
 | 31/10/2026 | Funzione esegui che apre il db e converte ValueError in ToolError | try/except in ogni tool | solo ToolError porta il messaggio al modello (documentazione SDK, "Handling errors"); crm.py resta indipendente da MCP | 
+| 01/11/2026 | esegui converte in ToolError anche sqlite3.IntegrityError | lasciare solo ValueError | i vincoli dello schema violati (es. reclamo senza categoria) arrivavano al modello senza messaggio; ora il modello vede il vincolo e può correggersi |
+| 01/11/2026 | Percorso del db calcolato dalla posizione di crm.py e seed.py | percorso relativo alla cartella di lancio | lanciando da un'altra cartella il db non si apre; harness, test e web potrebbero partire da cartelle diverse |

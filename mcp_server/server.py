@@ -1,6 +1,9 @@
+import sqlite3
+
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 from mcp.types import ToolAnnotations
+
 
 from db import crm
 
@@ -12,7 +15,7 @@ def esegui(funzione, *parametri):
     conn = crm.connetti()
     try:
         return funzione(conn, *parametri)
-    except ValueError as errore:
+    except (ValueError, sqlite3.IntegrityError) as errore:
         raise ToolError(str(errore))
     finally:
         conn.close()

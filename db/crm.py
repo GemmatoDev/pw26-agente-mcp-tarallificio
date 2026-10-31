@@ -1,8 +1,9 @@
 import sqlite3
 from datetime import date
+from pathlib import Path
 
-# linko db
-DB = "db/gemmataralli.db"
+# linko db calcolato dalla posizione del file
+DB = Path(__file__).resolve().parent / "gemmataralli.db"
 
 # connessione al DB
 def connetti():
