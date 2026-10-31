@@ -27,3 +27,5 @@
 | 31/10/2026 | Errori del data layer con raise ValueError | restituire None o una stringa | il server MCP passa l'errore al modello come errore del tool |
 | 31/10/2026 | Stato e date di ticket e attività decisi dal codice | farli scegliere al modello | il modello non può inventare date o aprire ticket già chiusi |
 | 31/10/2026 | aggiorna_opportunita restituisce anche lo stato precedente | solo lo stato nuovo | serve per mostrare il prima e dopo nella conferma |
+| 31/10/2026 | Versione dell'SDK MCP fissata a 2.3.0 in requirements.txt | versione non fissata | la 2.x è diversa dalla 1.x usata nei tutorial online (MCPServer invece di FastMCP); fissando la versione chi clona il repo installa la stessa che ho usato |
+| 31/10/2026 | Funzione esegui che apre il db e converte ValueError in ToolError | try/except in ogni tool | solo ToolError porta il messaggio al modello (documentazione SDK, "Handling errors"); crm.py resta indipendente da MCP | 
