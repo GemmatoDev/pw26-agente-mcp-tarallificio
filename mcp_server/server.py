@@ -1,4 +1,5 @@
 import sqlite3
+from typing import Literal
 
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
@@ -56,8 +57,9 @@ def dettaglio_cliente(cliente_id: int) -> dict:
 
 # ticket del cliente anche filtrati per stato
 @server.tool(annotations=LETTURA, meta={"rischio": "basso"})
-def elenco_ticket(cliente_id: int, stato: str | None = None) -> list[dict]:
-    """Ticket di un cliente, anche filtrati per stato: aperto, in_lavorazione o chiuso."""
+def elenco_ticket(cliente_id: int,
+                  stato: Literal["aperto", "in_lavorazione", "chiuso"] | None = None) -> list[dict]:
+    """Ticket di un cliente, anche filtrati per stato."""
     return esegui(crm.elenco_ticket, cliente_id, stato)
 
 # clienti che hanno ricevuto un lotto
@@ -68,31 +70,36 @@ def tracciabilita_lotto(codice_lotto: str) -> dict:
 
 # apro un nuovo ticket
 @server.tool(annotations=AGGIUNGE, meta={"rischio": "medio"})
-def crea_ticket(cliente_id: int, tipo: str, priorita: str, descrizione: str,
-                categoria: str | None = None, lotto_codice: str | None = None,
+def crea_ticket(cliente_id: int,
+                tipo: Literal["reclamo", "campionatura", "richiesta_documenti"],
+                priorita: Literal["alta", "media", "bassa"],
+                descrizione: str,
+                categoria: Literal["frantumato", "ritardo", "confezione", "etichetta", "corpo_estraneo"] | None = None,
+                lotto_codice: str | None = None,
                 spedizione_id: int | None = None) -> dict:
-    """Apre un ticket. Lotto e spedizione devono essere del cliente.
-    Tipo: reclamo, campionatura o richiesta_documenti.
-    Priorità: alta, media o bassa.
-    Categoria solo per i reclami: frantumato, ritardo, confezione, etichetta o corpo_estraneo.
-    """
+    """Apre un ticket. La categoria va messa solo per i reclami. Lotto e spedizione devono essere del cliente."""
     return esegui(crm.crea_ticket, cliente_id, tipo, priorita, descrizione,
                   categoria, lotto_codice, spedizione_id)
 
 # registro un'attività fatta con il cliente
 @server.tool(annotations=AGGIUNGE, meta={"rischio": "medio"})
-def registra_attivita(cliente_id: int, tipo: str, operatore: str, nota: str | None = None,
-                      opportunita_id: int | None = None, ticket_id: int | None = None) -> dict:
-    """Registra un'attività fatta con il cliente. Tipo: telefonata, email, visita o invio_campioni."""
+def registra_attivita(cliente_id: int,
+                      tipo: Literal["telefonata", "email", "visita", "invio_campioni"],
+                      operatore: str,
+                      nota: str | None = None,
+                      opportunita_id: int | None = None,
+                      ticket_id: int | None = None) -> dict:
+    """Registra un'attività fatta con il cliente."""
     return esegui(crm.registra_attivita, cliente_id, tipo, operatore, nota,
                   opportunita_id, ticket_id)
 
 # cambio lo stato di un'opportunità
 @server.tool(annotations=SOVRASCRIVE, meta={"rischio": "alto"})
-def aggiorna_opportunita(opportunita_id: int, stato: str) -> dict:
-    """Cambia lo stato di un'opportunità e restituisce quello vecchio. Stato: aperta, in_trattativa, vinta o persa."""
+def aggiorna_opportunita(opportunita_id: int,
+                         stato: Literal["aperta", "in_trattativa", "vinta", "persa"]) -> dict:
+    """Cambia lo stato di un'opportunità e restituisce quello vecchio."""
     return esegui(crm.aggiorna_opportunita, opportunita_id, stato)
 
 # avvio il server
 if __name__ == "__main__":
-    server.run()
+    server.run()    
