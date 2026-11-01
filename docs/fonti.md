@@ -6,6 +6,5 @@
 - Model Context Protocol, "Tools", https://modelcontextprotocol.io/specification/2026-07-28/server/tools, consultato il 31/10/2026
 - MCP Python SDK, "Handling errors", https://py.sdk.modelcontextprotocol.io/servers/handling-errors/, consultato il 31/10/2026
 - MCP Python SDK, "Migration Guide: v1 to v2", https://py.sdk.modelcontextprotocol.io/migration/, consultato il 31/10/2026
-- MCP Inspector v2.13.0, usato per provare i 7 tool (01/11/2026): https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector
-- Specifica MCP 2026-07-28, tool annotations (readOnlyHint, destructiveHint, idempotentHint, openWorldHint) e loro valori di default: https://modelcontextprotocol.io/specification/2026-07-28/server/tools
-- Pydantic, tipo Literal (usato per i valori fissi dei tool): https://pydantic.dev/docs/validation/latest/api/pydantic/standard_library_types/#literals
+- Model Context Protocol, "Tool Annotations as Risk Vocabulary: What Hints Can and Can't Do", https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/, consultato il 01/11/2026
+- Pydantic, "Standard Library Types", https://pydantic.dev/docs/validation/latest/api/pydantic/standard_library_types/#literals, consultato il 01/11/2026
