@@ -20,11 +20,78 @@ def esegui(funzione, *parametri):
     finally:
         conn.close()
 
+# i tool di lettura non modificano il db
+LETTURA = ToolAnnotations(
+    read_only_hint=True,
+    open_world_hint=False,
+)
+
+# i tool che aggiungono una riga senza toccare quelle che ci sono
+AGGIUNGE = ToolAnnotations(
+    read_only_hint=False,
+    destructive_hint=False,
+    idempotent_hint=False,
+    open_world_hint=False,
+)
+
+# il tool che sovrascrive un valore già presente
+SOVRASCRIVE = ToolAnnotations(
+    read_only_hint=False,
+    destructive_hint=True,
+    idempotent_hint=True,
+    open_world_hint=False,
+)
+
 # cerco i clienti per nome
-@server.tool(annotations=ToolAnnotations(read_only_hint=True), meta={"rischio": "basso"})
+@server.tool(annotations=LETTURA, meta={"rischio": "basso"})
 def cerca_cliente(testo: str) -> list[dict]:
-    """Cerca i clienti la cui ragione sociale contiene il testo indicato."""
+    """Cerca i clienti per ragione sociale, anche con una parte del nome. Restituisce l'id da usare negli altri tool."""
     return esegui(crm.cerca_cliente, testo)
+
+# scheda del cliente con contatti ticket e opportunità
+@server.tool(annotations=LETTURA, meta={"rischio": "basso"})
+def dettaglio_cliente(cliente_id: int) -> dict:
+    """Scheda del cliente con contatti, ticket e opportunità."""
+    return esegui(crm.dettaglio_cliente, cliente_id)
+
+# ticket del cliente anche filtrati per stato
+@server.tool(annotations=LETTURA, meta={"rischio": "basso"})
+def elenco_ticket(cliente_id: int, stato: str | None = None) -> list[dict]:
+    """Ticket di un cliente, anche filtrati per stato: aperto, in_lavorazione o chiuso."""
+    return esegui(crm.elenco_ticket, cliente_id, stato)
+
+# clienti che hanno ricevuto un lotto
+@server.tool(annotations=LETTURA, meta={"rischio": "basso"})
+def tracciabilita_lotto(codice_lotto: str) -> dict:
+    """Clienti che hanno ricevuto un lotto e con quale spedizione. Il codice è del tipo L-26101."""
+    return esegui(crm.tracciabilita_lotto, codice_lotto)
+
+# apro un nuovo ticket
+@server.tool(annotations=AGGIUNGE, meta={"rischio": "medio"})
+def crea_ticket(cliente_id: int, tipo: str, priorita: str, descrizione: str,
+                categoria: str | None = None, lotto_codice: str | None = None,
+                spedizione_id: int | None = None) -> dict:
+    """Apre un ticket. Lotto e spedizione devono essere del cliente.
+    Tipo: reclamo, campionatura o richiesta_documenti.
+    Priorità: alta, media o bassa.
+    Categoria solo per i reclami: frantumato, ritardo, confezione, etichetta o corpo_estraneo.
+    """
+    return esegui(crm.crea_ticket, cliente_id, tipo, priorita, descrizione,
+                  categoria, lotto_codice, spedizione_id)
+
+# registro un'attività fatta con il cliente
+@server.tool(annotations=AGGIUNGE, meta={"rischio": "medio"})
+def registra_attivita(cliente_id: int, tipo: str, operatore: str, nota: str | None = None,
+                      opportunita_id: int | None = None, ticket_id: int | None = None) -> dict:
+    """Registra un'attività fatta con il cliente. Tipo: telefonata, email, visita o invio_campioni."""
+    return esegui(crm.registra_attivita, cliente_id, tipo, operatore, nota,
+                  opportunita_id, ticket_id)
+
+# cambio lo stato di un'opportunità
+@server.tool(annotations=SOVRASCRIVE, meta={"rischio": "alto"})
+def aggiorna_opportunita(opportunita_id: int, stato: str) -> dict:
+    """Cambia lo stato di un'opportunità e restituisce quello vecchio. Stato: aperta, in_trattativa, vinta o persa."""
+    return esegui(crm.aggiorna_opportunita, opportunita_id, stato)
 
 # avvio il server
 if __name__ == "__main__":
