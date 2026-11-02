@@ -8,3 +8,4 @@
 - MCP Python SDK, "Migration Guide: v1 to v2", https://py.sdk.modelcontextprotocol.io/migration/, consultato il 31/10/2026
 - Model Context Protocol, "Tool Annotations as Risk Vocabulary: What Hints Can and Can't Do", https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/, consultato il 01/11/2026
 - Pydantic, "Standard Library Types", https://pydantic.dev/docs/validation/latest/api/pydantic/standard_library_types/#literals, consultato il 01/11/2026
+- Ollama, "Tool calling", https://docs.ollama.com/capabilities/tool-calling, consultato il 02/11/2026
