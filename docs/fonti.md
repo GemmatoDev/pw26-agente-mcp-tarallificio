@@ -9,3 +9,5 @@
 - Model Context Protocol, "Tool Annotations as Risk Vocabulary: What Hints Can and Can't Do", https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/, consultato il 01/11/2026
 - Pydantic, "Standard Library Types", https://pydantic.dev/docs/validation/latest/api/pydantic/standard_library_types/#literals, consultato il 01/11/2026
 - Ollama, "Tool calling", https://docs.ollama.com/capabilities/tool-calling, consultato il 02/11/2026
+- MCP Python SDK, "Clients", https://py.sdk.modelcontextprotocol.io/client/, consultato il 03/11/2026
+- MCP Python SDK, "Transports", https://py.sdk.modelcontextprotocol.io/client/transports/, consultato il 03/11/2026

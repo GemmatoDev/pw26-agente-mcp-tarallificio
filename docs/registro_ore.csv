@@ -24,3 +24,4 @@
 01/11/2026,Server MCP,completati i 7 tool del server,2,2.5,scelta delle annotazioni per i tool di scrittura,"divisi in tre gruppi: lettura, aggiunge e sovrascrive",commit 89d90f7
 01/11/2026,Server MCP,schema parametri con Literal e prove,1,1.5,valori fissi scritti solo nel testo e non nello schema,usato Literal e testato con MCP Inspector anche con casi di errore,mcp_server/server.py --- docs/screenshots
 02/11/2026,Harness,interfaccia LLMProvider e provider Ollama,1.5,1,-,-,harness/providers.py
+03/11/2026,Harness,client MCP dell'harness,1.5,1,-,-,harness/client_mcp.py
