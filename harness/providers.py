@@ -40,7 +40,20 @@ class OllamaProvider(LLMProvider):
                 },
             })
 
-        risposta = ollama.chat(model=self.modello, messages=messaggi, tools=tools_ollama)
+        # traduco i messaggi nel formato di ollama
+        messaggi_ollama = []
+        for messaggio in messaggi:
+            if messaggio["role"] == "assistant":
+                tool_calls = []
+                for c in messaggio.get("chiamate", []):
+                    tool_calls.append({"function": {"name": c["nome"], "arguments": c["argomenti"]}})
+                messaggi_ollama.append({"role": "assistant", "content": messaggio["content"], "tool_calls": tool_calls})
+            elif messaggio["role"] == "tool":
+                messaggi_ollama.append({"role": "tool", "tool_name": messaggio["nome"], "content": messaggio["content"]})
+            else:
+                messaggi_ollama.append(messaggio)
+
+        risposta = ollama.chat(model=self.modello, messages=messaggi_ollama, tools=tools_ollama)
 
         # prendo le chiamate ai tool
         chiamate = []

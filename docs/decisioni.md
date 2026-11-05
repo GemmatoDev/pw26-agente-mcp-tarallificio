@@ -35,3 +35,4 @@
 | 01/11/2026 | Valori fissi dei tool con Literal al posto di str | valori ammessi scritti solo nella descrizione del tool | con str l'Inspector mostrava una textbox e il modello vedeva i valori solo nel testo; con Literal finiscono nello schema e quelli sbagliati vengono scartati prima del db. I CHECK restano: se cambio un valore va aggiornato in server.py e schema.sql (screenshot prima e dopo in docs/screenshots) |
 | 02/11/2026 | Il ciclo usa solo LLMProvider.chiedi, ogni fornitore è una classe a parte | chiamare ollama direttamente nel ciclo | per cambiare modello o fornitore si tocca solo providers.py |
 | 03/11/2026 | Se un tool non ha il rischio lo considero alto | considerarlo di lettura | meglio chiedere una conferma in più |
+| 05/11/2026 | Il ciclo si ferma dopo 8 giri | while True come nell'esempio di ollama | se il modello continua a chiedere tool il ciclo non finisce mai |
