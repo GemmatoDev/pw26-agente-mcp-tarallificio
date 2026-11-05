@@ -1,8 +1,11 @@
 import asyncio
 import sys
+import time
+from datetime import datetime
 
 from mcp import Client
 
+from harness import log
 from harness.client_mcp import SERVER, esegui_tool, leggi_tool
 from harness.providers import OllamaProvider
 
@@ -23,6 +26,7 @@ async def esegui_ciclo(richiesta, provider, client):
     for tool in tools:
         rischi[tool["nome"]] = tool["rischio"]
     stato = {
+        "sessione": datetime.now().strftime("%Y%m%d-%H%M%S-%f"),
         "messaggi": [
             {"role": "system", "content": SISTEMA},
             {"role": "user", "content": richiesta},
@@ -34,17 +38,28 @@ async def esegui_ciclo(richiesta, provider, client):
         "token_input": 0,
         "token_output": 0,
     }
+    log.scrivi(stato, "richiesta", testo=richiesta, modello=provider.modello)
     return await avanza(stato, provider, client)
 
 # riparto dopo la risposta dell'utente sulla conferma
 async def riprendi(stato, confermato, provider, client):
     chiamata = stato["in_sospeso"].pop(0)
+    log.scrivi(stato, "conferma", tool=chiamata["nome"], confermato=confermato)
     if confermato:
         testo, errore = await esegui_tool(client, chiamata["nome"], chiamata["argomenti"])
     else:
         testo = "Operazione annullata, l'utente non ha confermato."
+        errore = False
+    log.scrivi(stato, "tool", tool=chiamata["nome"], argomenti=chiamata["argomenti"], risultato=testo, errore=errore)
     stato["messaggi"].append({"role": "tool", "nome": chiamata["nome"], "content": testo})
     return await avanza(stato, provider, client)
+
+# scrivo la fine nel log e restituisco il risultato
+def fine(stato, esito, testo):
+    log.scrivi(stato, "fine", esito=esito, iterazioni=stato["iterazione"],
+               token_input=stato["token_input"], token_output=stato["token_output"])
+    return {"esito": esito, "testo": testo, "iterazioni": stato["iterazione"],
+            "token_input": stato["token_input"], "token_output": stato["token_output"]}
 
 # ciclo agentico
 async def avanza(stato, provider, client):
@@ -56,28 +71,32 @@ async def avanza(stato, provider, client):
 
             # tool di scrittura quindi mi fermo e aspetto la conferma
             if rischio in DA_CONFERMARE:
+                log.scrivi(stato, "attesa_conferma", tool=chiamata["nome"], argomenti=chiamata["argomenti"], rischio=rischio)
                 return {"esito": "attesa_conferma", "chiamata": chiamata, "rischio": rischio,
                         "stato": stato, "iterazioni": stato["iterazione"],
                         "token_input": stato["token_input"], "token_output": stato["token_output"]}
 
             stato["in_sospeso"].pop(0)
             testo, errore = await esegui_tool(client, chiamata["nome"], chiamata["argomenti"])
+            log.scrivi(stato, "tool", tool=chiamata["nome"], argomenti=chiamata["argomenti"], risultato=testo, errore=errore)
             stato["messaggi"].append({"role": "tool", "nome": chiamata["nome"], "content": testo})
 
         # limite di giri raggiunto
         if stato["iterazione"] >= MAX_ITERAZIONI:
-            return {"esito": "limite_iterazioni", "testo": "", "iterazioni": stato["iterazione"],
-                    "token_input": stato["token_input"], "token_output": stato["token_output"]}
+            return fine(stato, "limite_iterazioni", "")
 
         stato["iterazione"] += 1
+        inizio = time.perf_counter()
         risposta = provider.chiedi(stato["messaggi"], stato["tools"])
+        secondi = round(time.perf_counter() - inizio, 2)
+        log.scrivi(stato, "modello", iterazione=stato["iterazione"], testo=risposta.testo, chiamate=risposta.chiamate,
+                   token_input=risposta.token_input, token_output=risposta.token_output, secondi=secondi)
         stato["token_input"] += risposta.token_input
         stato["token_output"] += risposta.token_output
 
         # nessun tool quindi il modello ha risposto
         if not risposta.chiamate:
-            return {"esito": "risposta", "testo": risposta.testo, "iterazioni": stato["iterazione"],
-                    "token_input": stato["token_input"], "token_output": stato["token_output"]}
+            return fine(stato, "risposta", risposta.testo)
 
         # salvo la risposta con le chiamate per il giro dopo
         stato["messaggi"].append({"role": "assistant", "content": risposta.testo, "chiamate": risposta.chiamate})

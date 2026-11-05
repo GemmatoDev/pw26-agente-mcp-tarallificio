@@ -222,4 +222,4 @@ __marimo__/
 # File da non tracciare
 *.db
 *.sqlite
-logs/
+logs/ciclo.jsonl
