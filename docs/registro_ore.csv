@@ -26,3 +26,4 @@
 02/11/2026,Harness,interfaccia LLMProvider e provider Ollama,1.5,1,-,-,harness/providers.py
 03/11/2026,Harness,client MCP dell'harness,1.5,1,-,-,harness/client_mcp.py
 05/11/2026,Harness,ciclo agentico con limite di iterazioni,2,1.5,-,-,harness/ciclo.py
+05/11/2026,Harness,conferma prima dei tool di scrittura,2,1.5,-,-,harness/ciclo.py

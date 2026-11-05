@@ -36,3 +36,4 @@
 | 02/11/2026 | Il ciclo usa solo LLMProvider.chiedi, ogni fornitore è una classe a parte | chiamare ollama direttamente nel ciclo | per cambiare modello o fornitore si tocca solo providers.py |
 | 03/11/2026 | Se un tool non ha il rischio lo considero alto | considerarlo di lettura | meglio chiedere una conferma in più |
 | 05/11/2026 | Il ciclo si ferma dopo 8 giri | while True come nell'esempio di ollama | se il modello continua a chiedere tool il ciclo non finisce mai |
+| 05/11/2026 | Conferma per i tool con rischio medio e alto | conferma solo per rischio alto | anche aprire un ticket o registrare un'attività scrive nel db |
