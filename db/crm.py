@@ -177,3 +177,16 @@ def aggiorna_opportunita(conn, opportunita_id, stato):
     risultato["stato_precedente"] = risultato["stato"]
     risultato["stato"] = stato
     return risultato
+
+# scheda dell'opportunità con il nome del cliente
+def dettaglio_opportunita(conn, opportunita_id):
+    query = """
+        SELECT opportunita.*, cliente.ragione_sociale
+        FROM opportunita
+        JOIN cliente ON cliente.id = opportunita.cliente_id
+        WHERE opportunita.id = ?
+    """
+    opportunita = conn.execute(query, (opportunita_id,)).fetchone()
+    if opportunita is None:
+        raise ValueError("opportunità non esistente")
+    return dict(opportunita)

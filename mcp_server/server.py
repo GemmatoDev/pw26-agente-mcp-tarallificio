@@ -68,6 +68,12 @@ def tracciabilita_lotto(codice_lotto: str) -> dict:
     """Clienti che hanno ricevuto un lotto e con quale spedizione. Il codice è del tipo L-26101."""
     return esegui(crm.tracciabilita_lotto, codice_lotto)
 
+# scheda di un'opportunità
+@server.tool(annotations=LETTURA, meta={"rischio": "basso"})
+def dettaglio_opportunita(opportunita_id: int) -> dict:
+    """Scheda di un'opportunità con titolo, valore, stato e cliente."""
+    return esegui(crm.dettaglio_opportunita, opportunita_id)
+
 # apro un nuovo ticket
 @server.tool(annotations=AGGIUNGE, meta={"rischio": "medio"})
 def crea_ticket(cliente_id: int,

@@ -6,6 +6,7 @@ from datetime import datetime
 from mcp import Client
 
 from harness import log
+from harness.anteprima import controlla_parametri, prepara_anteprima
 from harness.client_mcp import SERVER, esegui_tool, leggi_tool
 from harness.providers import OllamaProvider
 
@@ -23,8 +24,10 @@ SISTEMA = (
 async def esegui_ciclo(richiesta, provider, client):
     tools = await leggi_tool(client)
     rischi = {}
+    schemi = {}
     for tool in tools:
         rischi[tool["nome"]] = tool["rischio"]
+        schemi[tool["nome"]] = tool["schema"]
     stato = {
         "sessione": datetime.now().strftime("%Y%m%d-%H%M%S-%f"),
         "messaggi": [
@@ -33,6 +36,7 @@ async def esegui_ciclo(richiesta, provider, client):
         ],
         "tools": tools,
         "rischi": rischi,
+        "schemi": schemi,
         "in_sospeso": [],
         "iterazione": 0,
         "token_input": 0,
@@ -71,8 +75,18 @@ async def avanza(stato, provider, client):
 
             # tool di scrittura quindi mi fermo e aspetto la conferma
             if rischio in DA_CONFERMARE:
-                log.scrivi(stato, "attesa_conferma", tool=chiamata["nome"], argomenti=chiamata["argomenti"], rischio=rischio)
-                return {"esito": "attesa_conferma", "chiamata": chiamata, "rischio": rischio,
+                # parametri sbagliati quindi l'errore torna al modello
+                problema = controlla_parametri(chiamata["argomenti"], stato["schemi"][chiamata["nome"]])
+                if problema:
+                    stato["in_sospeso"].pop(0)
+                    log.scrivi(stato, "tool", tool=chiamata["nome"], argomenti=chiamata["argomenti"], risultato=problema, errore=True)
+                    stato["messaggi"].append({"role": "tool", "nome": chiamata["nome"], "content": problema})
+                    continue
+
+                anteprima = await prepara_anteprima(client, chiamata)
+                log.scrivi(stato, "attesa_conferma", tool=chiamata["nome"], argomenti=chiamata["argomenti"],
+                           rischio=rischio, anteprima=anteprima)
+                return {"esito": "attesa_conferma", "chiamata": chiamata, "rischio": rischio, "anteprima": anteprima,
                         "stato": stato, "iterazioni": stato["iterazione"],
                         "token_input": stato["token_input"], "token_output": stato["token_output"]}
 
@@ -113,6 +127,8 @@ async def main():
             chiamata = risultato["chiamata"]
             print("Il modello vuole usare", chiamata["nome"], "con", chiamata["argomenti"])
             print("Rischio:", risultato["rischio"])
+            print("Prima:", risultato["anteprima"]["prima"])
+            print("Dopo: ", risultato["anteprima"]["dopo"])
             risposta = input("Confermi? (s/n) ")
             risultato = await riprendi(risultato["stato"], risposta.strip().lower() == "s", provider, client)
 

@@ -38,3 +38,5 @@
 | 05/11/2026 | Il ciclo si ferma dopo 8 giri | while True come nell'esempio di ollama | se il modello continua a chiedere tool il ciclo non finisce mai |
 | 05/11/2026 | Conferma per i tool con rischio medio e alto | conferma solo per rischio alto | anche aprire un ticket o registrare un'attività scrive nel db |
 | 05/11/2026 | Il log delle prove non va su git | committare logs/ciclo.jsonl | si riempie a ogni prova, i log dei test li salvo a parte |
+| 06/11/2026 | Controllo i parametri prima di chiedere la conferma | chiedere sempre la conferma | confermavo chiamate che poi fallivano |
+| 06/11/2026 | Aggiunto il tool dettaglio_opportunita | leggere il db dall'harness | mi serve lo stato attuale per l'anteprima |

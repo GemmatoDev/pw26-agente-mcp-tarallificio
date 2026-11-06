@@ -28,3 +28,4 @@
 05/11/2026,Harness,ciclo agentico con limite di iterazioni,2,1.5,-,-,harness/ciclo.py
 05/11/2026,Harness,conferma prima dei tool di scrittura,2,1.5,-,-,harness/ciclo.py
 05/11/2026,Harness,log JSONL dei passi del ciclo,1.5,1,-,-,harness/log.py --- harness/ciclo.py
+06/11/2026,Harness,anteprima prima e dopo nella conferma,1.5,1,-,-,harness/anteprima.py --- harness/ciclo.py
