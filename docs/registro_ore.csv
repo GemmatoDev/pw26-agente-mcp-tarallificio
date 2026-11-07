@@ -30,3 +30,4 @@
 05/11/2026,Harness,log JSONL dei passi del ciclo,1.5,1,-,-,harness/log.py --- harness/ciclo.py
 06/11/2026,Harness,anteprima prima e dopo nella conferma,1.5,1,-,-,harness/anteprima.py --- harness/ciclo.py
 07/11/2026,Harness,provider Groq,2,2,id delle chiamate richiesti da groq,id assegnati in ordine nel provider,harness/providers.py
+07/11/2026,Harness,runner degli scenari e prima prova con qwen3,1.5,1.5,il modello dice di aver creato un ticket che non esiste,controllato nel log dello scenario,harness/runner.py --- tests/scenari.json

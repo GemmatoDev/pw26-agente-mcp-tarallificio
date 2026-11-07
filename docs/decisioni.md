@@ -42,3 +42,5 @@
 | 06/11/2026 | Aggiunto il tool dettaglio_opportunita | leggere il db dall'harness | mi serve lo stato attuale per l'anteprima |
 | 07/11/2026 | Secondo provider Groq con gpt-oss-120b | Gemini | piano gratuito senza carta e limiti sufficienti per i test |
 | 07/11/2026 | Il modello si sceglie da terminale, quelli di groq iniziano con groq/ | modello scritto nel codice | cambio modello senza toccare il codice |
+| 07/11/2026 | Gli scenari stanno in un file json letto dal runner | scriverli nel codice | li cambio senza toccare il codice e sono uguali per tutti i modelli |
+| 07/11/2026 | Se una conferma non è prevista nello scenario il runner dice no | dire sempre sì | in caso di dubbio non si scrive nel db |

@@ -62,7 +62,7 @@ async def riprendi(stato, confermato, provider, client):
 def fine(stato, esito, testo):
     log.scrivi(stato, "fine", esito=esito, iterazioni=stato["iterazione"],
                token_input=stato["token_input"], token_output=stato["token_output"])
-    return {"esito": esito, "testo": testo, "iterazioni": stato["iterazione"],
+    return {"esito": esito, "testo": testo, "iterazioni": stato["iterazione"], "sessione": stato["sessione"],
             "token_input": stato["token_input"], "token_output": stato["token_output"]}
 
 # ciclo agentico
