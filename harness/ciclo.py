@@ -8,7 +8,7 @@ from mcp import Client
 from harness import log
 from harness.anteprima import controlla_parametri, prepara_anteprima
 from harness.client_mcp import SERVER, esegui_tool, leggi_tool
-from harness.providers import OllamaProvider
+from harness.providers import crea_provider
 
 MAX_ITERAZIONI = 8
 
@@ -118,7 +118,8 @@ async def avanza(stato, provider, client):
 
 # prova da terminale
 async def main():
-    provider = OllamaProvider("qwen3:8b")
+    modello = sys.argv[2] if len(sys.argv) > 2 else "qwen3:8b"
+    provider = crea_provider(modello)
     async with Client(SERVER) as client:
         risultato = await esegui_ciclo(sys.argv[1], provider, client)
 

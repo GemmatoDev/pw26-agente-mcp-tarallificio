@@ -29,3 +29,4 @@
 05/11/2026,Harness,conferma prima dei tool di scrittura,2,1.5,-,-,harness/ciclo.py
 05/11/2026,Harness,log JSONL dei passi del ciclo,1.5,1,-,-,harness/log.py --- harness/ciclo.py
 06/11/2026,Harness,anteprima prima e dopo nella conferma,1.5,1,-,-,harness/anteprima.py --- harness/ciclo.py
+07/11/2026,Harness,provider Groq,2,2,id delle chiamate richiesti da groq,id assegnati in ordine nel provider,harness/providers.py

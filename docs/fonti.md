@@ -11,3 +11,5 @@
 - Ollama, "Tool calling", https://docs.ollama.com/capabilities/tool-calling, consultato il 02/11/2026
 - MCP Python SDK, "Clients", https://py.sdk.modelcontextprotocol.io/client/, consultato il 03/11/2026
 - MCP Python SDK, "Transports", https://py.sdk.modelcontextprotocol.io/client/transports/, consultato il 03/11/2026
+- Groq, "Local Tool Calling", https://console.groq.com/docs/tool-use/local-tool-calling, consultato il 07/11/2026
+- Groq, "Rate Limits", https://console.groq.com/docs/rate-limits, consultato il 07/11/2026

@@ -40,3 +40,5 @@
 | 05/11/2026 | Il log delle prove non va su git | committare logs/ciclo.jsonl | si riempie a ogni prova, i log dei test li salvo a parte |
 | 06/11/2026 | Controllo i parametri prima di chiedere la conferma | chiedere sempre la conferma | confermavo chiamate che poi fallivano |
 | 06/11/2026 | Aggiunto il tool dettaglio_opportunita | leggere il db dall'harness | mi serve lo stato attuale per l'anteprima |
+| 07/11/2026 | Secondo provider Groq con gpt-oss-120b | Gemini | piano gratuito senza carta e limiti sufficienti per i test |
+| 07/11/2026 | Il modello si sceglie da terminale, quelli di groq iniziano con groq/ | modello scritto nel codice | cambio modello senza toccare il codice |
