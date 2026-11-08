@@ -13,3 +13,6 @@
 - MCP Python SDK, "Transports", https://py.sdk.modelcontextprotocol.io/client/transports/, consultato il 03/11/2026
 - Groq, "Local Tool Calling", https://console.groq.com/docs/tool-use/local-tool-calling, consultato il 07/11/2026
 - Groq, "Rate Limits", https://console.groq.com/docs/rate-limits, consultato il 07/11/2026
+- FastAPI, "Templates", https://fastapi.tiangolo.com/advanced/templates/, consultato il 07/11/2026
+- FastAPI, "Lifespan Events", https://fastapi.tiangolo.com/advanced/events/, consultato il 07/11/2026
+- FastAPI, "Form Data", https://fastapi.tiangolo.com/tutorial/request-forms/, consultato il 07/11/2026

@@ -44,3 +44,5 @@
 | 07/11/2026 | Il modello si sceglie da terminale, quelli di groq iniziano con groq/ | modello scritto nel codice | cambio modello senza toccare il codice |
 | 07/11/2026 | Gli scenari stanno in un file json letto dal runner | scriverli nel codice | li cambio senza toccare il codice e sono uguali per tutti i modelli |
 | 07/11/2026 | Se una conferma non è prevista nello scenario il runner dice no | dire sempre sì | in caso di dubbio non si scrive nel db |
+| 07/11/2026 | Web solo con form html senza javascript | pagina con javascript | basta per chat e conferma ed è più semplice |
+| 07/11/2026 | La traccia dei passi la prendo dal log della sessione | salvare i passi a parte | il log ha già tutto |

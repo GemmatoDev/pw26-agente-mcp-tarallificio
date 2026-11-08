@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GemmaTaralli - assistente CRM</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css">
+  <style>
+    .risposta { white-space: pre-wrap; }
+    td, th { font-size: 0.9rem; vertical-align: top; }
+  </style>
+</head>
+<body>
+<main class="container">
+  <h2>GemmaTaralli - assistente CRM</h2>
+
+  <form method="post" action="/chiedi">
+    <textarea name="richiesta" rows="3" placeholder="es. chi ha ricevuto il lotto L-26101?" required>{{ richiesta or "" }}</textarea>
+    <select name="modello">
+      {% for m in modelli %}
+      <option value="{{ m }}" {% if m == modello %}selected{% endif %}>{{ m }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Invia</button>
+  </form>
+
+  {% if risultato %}
+    {% if risultato.esito == "attesa_conferma" %}
+    <article>
+      <header><strong>Conferma richiesta</strong> - il modello vuole usare {{ risultato.chiamata.nome }} (rischio {{ risultato.rischio }})</header>
+      <table>
+        <tr><th>Prima</th><th>Dopo</th></tr>
+        <tr>
+          <td>
+            {% if risultato.anteprima.prima %}
+              {% for k, v in risultato.anteprima.prima.items() %}{{ k }}: {{ v }}<br>{% endfor %}
+            {% else %}
+              niente, è una riga nuova
+            {% endif %}
+          </td>
+          <td>
+            {% for k, v in risultato.anteprima.dopo.items() %}{{ k }}: {{ v }}<br>{% endfor %}
+          </td>
+        </tr>
+      </table>
+      <form method="post" action="/conferma">
+        <input type="hidden" name="sessione" value="{{ sessione }}">
+        <div class="grid">
+          <button type="submit" name="scelta" value="si">Conferma</button>
+          <button type="submit" name="scelta" value="no" class="secondary">Annulla</button>
+        </div>
+      </form>
+    </article>
+    {% else %}
+    <article>
+      <p class="risposta">{{ risultato.testo or "nessuna risposta" }}</p>
+      <footer><small>esito: {{ risultato.esito }} | giri: {{ risultato.iterazioni }} | token: {{ risultato.token_input }} in, {{ risultato.token_output }} out</small></footer>
+    </article>
+    {% endif %}
+
+    <details>
+      <summary>Passi del ciclo</summary>
+      <table>
+        {% for ora, chi, testo in passi %}
+        <tr><td>{{ ora }}</td><td>{{ chi }}</td><td>{{ testo }}</td></tr>
+        {% endfor %}
+      </table>
+    </details>
+  {% endif %}
+</main>
+</body>
+</html>
