@@ -53,7 +53,7 @@
     </article>
     {% else %}
     <article>
-      <p class="risposta">{{ risultato.testo or "nessuna risposta" }}</p>
+      <p class="risposta">{{ (risultato.testo or "nessuna risposta") | replace("**", "") }}</p>
       <footer><small>esito: {{ risultato.esito }} | giri: {{ risultato.iterazioni }} | token: {{ risultato.token_input }} in, {{ risultato.token_output }} out</small></footer>
     </article>
     {% endif %}
