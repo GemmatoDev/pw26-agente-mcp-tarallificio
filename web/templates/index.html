@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GemmaTaralli - assistente CRM</title>
+  <link rel="icon" href="/static/icona.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css">
   <style>
     .risposta { white-space: pre-wrap; }
-    td, th { font-size: 0.9rem; vertical-align: top; }
+    td, th { font-size: 0.9rem; vertical-align: top; overflow-wrap: anywhere; }
+    .passi td:first-child { white-space: nowrap; }
+    .testata { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .testata div { display: flex; flex-direction: column; }
+    .nome { font-size: 1.6rem; color: #3B2A1A; }
+    .gemma { color: #0E6B4D; }
+    .testata small { color: #7A5230; font-style: italic; }
   </style>
 </head>
 <body>
 <main class="container">
-  <h2>GemmaTaralli - assistente CRM</h2>
+  <header class="testata">
+    <img src="/static/icona.png" alt="Logo GemmaTaralli" width="64" height="64">
+    <div>
+      <strong class="nome"><span class="gemma">Gemma</span>Taralli</strong>
+      <small>assistente CRM</small>
+    </div>
+  </header>
 
   <form method="post" action="/chiedi">
     <textarea name="richiesta" rows="3" placeholder="es. chi ha ricevuto il lotto L-26101?" required>{{ richiesta or "" }}</textarea>
@@ -60,7 +73,7 @@
 
     <details>
       <summary>Passi del ciclo</summary>
-      <table>
+      <table class="passi">
         {% for ora, chi, testo in passi %}
         <tr><td>{{ ora }}</td><td>{{ chi }}</td><td>{{ testo }}</td></tr>
         {% endfor %}

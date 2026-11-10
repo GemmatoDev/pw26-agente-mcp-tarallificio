@@ -35,3 +35,5 @@ data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
 08/11/2026,Web,sistemata la traccia dei passi e tolti gli asterischi,0.5,0.5,-,-,web/app.py --- web/templates/index.html
 09/11/2026,Test,errori del fornitore nel ciclo e giro ufficiale dei test,1,0.75,groq rifiuta un tool con il nome sbagliato e il runner crasha,errore del modello gestito nel ciclo come condizione di arresto,harness/ciclo.py
 10/11/2026,Test,controllo dei risultati del giro ufficiale,1,1,qwen3 dice di aver aperto il reclamo ma nel log è annullato,controllo ogni risposta con il log dello scenario,logs/scenari
+10/11/2026,Web,logo in canva,1,3,non sono un grafico e le prime versioni con le forme sembravano un fischietto,logo finale con il tarallo e il nome in due colori,web/static/logo.png
+10/11/2026,Web,logo nella testata e screenshot della pagina,0.5,1,su mobile la tabella dei passi usciva dallo schermo,parole lunghe a capo dentro le celle e ora su una riga,web/app.py --- web/templates/index.html --- docs/screenshots

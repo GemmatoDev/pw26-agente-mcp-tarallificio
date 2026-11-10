@@ -16,3 +16,5 @@
 - FastAPI, "Templates", https://fastapi.tiangolo.com/advanced/templates/, consultato il 07/11/2026
 - FastAPI, "Lifespan Events", https://fastapi.tiangolo.com/advanced/events/, consultato il 07/11/2026
 - FastAPI, "Form Data", https://fastapi.tiangolo.com/tutorial/request-forms/, consultato il 07/11/2026
+- FastAPI, "Static Files", https://fastapi.tiangolo.com/tutorial/static-files/, consultato il 10/11/2026
+- Pico CSS, "Color schemes", https://picocss.com/docs/color-schemes, consultato il 10/11/2026

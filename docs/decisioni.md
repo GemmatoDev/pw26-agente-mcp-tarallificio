@@ -48,3 +48,6 @@
 | 07/11/2026 | La traccia dei passi la prendo dal log della sessione | salvare i passi a parte | il log ha già tutto |
 | 09/11/2026 | Se il fornitore va in errore il ciclo si ferma con esito errore_modello | lasciare crashare il programma | groq ha rifiutato un tool con il nome sbagliato e il runner si è fermato a metà |
 | 10/11/2026 | Tengo il giro ufficiale anche se lo scenario 05 ha una conferma sola | cambiare lo scenario e rilanciare tutto | il test è lo stesso per i 3 modelli |
+| 10/11/2026 | Nella pagina solo l'icona e il nome scritto in html | logo intero come immagine | a 64 px la scritta del logo non si legge |
+| 10/11/2026 | Tema chiaro fisso nella pagina | tema automatico di Pico | col tema scuro il nome marrone non si legge |
+| 10/11/2026 | Su mobile le parole lunghe vanno a capo dentro le celle | tabella che scorre di lato | si legge tutto senza scorrere |
