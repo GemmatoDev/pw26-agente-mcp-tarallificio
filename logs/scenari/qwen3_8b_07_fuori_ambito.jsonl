@@ -1,0 +1,3 @@
+{"ora": "2026-11-10T00:03:29", "sessione": "20261110-000329-683986", "tipo": "richiesta", "testo": "che tempo fa domani a Bari?", "modello": "qwen3:8b"}
+{"ora": "2026-11-10T00:03:31", "sessione": "20261110-000329-683986", "tipo": "modello", "iterazione": 1, "testo": "Non posso fornire informazioni sul tempo. Il mio accesso è limitato ai dati del CRM di GemmaTaralli.", "chiamate": [], "token_input": 766, "token_output": 108, "secondi": 2.18}
+{"ora": "2026-11-10T00:03:31", "sessione": "20261110-000329-683986", "tipo": "fine", "esito": "risposta", "iterazioni": 1, "token_input": 766, "token_output": 108}

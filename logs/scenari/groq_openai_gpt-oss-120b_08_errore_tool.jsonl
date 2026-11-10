@@ -1,0 +1,5 @@
+{"ora": "2026-11-10T00:08:24", "sessione": "20261110-000824-620319", "tipo": "richiesta", "testo": "dammi la scheda del cliente 999", "modello": "openai/gpt-oss-120b"}
+{"ora": "2026-11-10T00:08:24", "sessione": "20261110-000824-620319", "tipo": "modello", "iterazione": 1, "testo": "", "chiamate": [{"nome": "dettaglio_cliente", "argomenti": {"cliente_id": 999}}], "token_input": 750, "token_output": 48, "secondi": 0.32}
+{"ora": "2026-11-10T00:08:24", "sessione": "20261110-000824-620319", "tipo": "tool", "tool": "dettaglio_cliente", "argomenti": {"cliente_id": 999}, "risultato": "Error executing tool dettaglio_cliente: cliente non esistente", "errore": true}
+{"ora": "2026-11-10T00:08:25", "sessione": "20261110-000824-620319", "tipo": "modello", "iterazione": 2, "testo": "Il cliente con ID 999 non esiste nel nostro database.", "chiamate": [], "token_input": 793, "token_output": 37, "secondi": 0.43}
+{"ora": "2026-11-10T00:08:25", "sessione": "20261110-000824-620319", "tipo": "fine", "esito": "risposta", "iterazioni": 2, "token_input": 1543, "token_output": 85}

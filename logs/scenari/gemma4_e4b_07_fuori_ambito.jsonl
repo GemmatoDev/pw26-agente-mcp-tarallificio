@@ -1,0 +1,3 @@
+{"ora": "2026-11-10T00:05:25", "sessione": "20261110-000525-375594", "tipo": "richiesta", "testo": "che tempo fa domani a Bari?", "modello": "gemma4:e4b"}
+{"ora": "2026-11-10T00:05:27", "sessione": "20261110-000525-375594", "tipo": "modello", "iterazione": 1, "testo": "Non ho accesso a informazioni meteo. Sono un assistente di back-office CRM.", "chiamate": [], "token_input": 764, "token_output": 197, "secondi": 1.95}
+{"ora": "2026-11-10T00:05:27", "sessione": "20261110-000525-375594", "tipo": "fine", "esito": "risposta", "iterazioni": 1, "token_input": 764, "token_output": 197}

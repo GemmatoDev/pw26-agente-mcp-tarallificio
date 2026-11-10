@@ -46,3 +46,5 @@
 | 07/11/2026 | Se una conferma non è prevista nello scenario il runner dice no | dire sempre sì | in caso di dubbio non si scrive nel db |
 | 07/11/2026 | Web solo con form html senza javascript | pagina con javascript | basta per chat e conferma ed è più semplice |
 | 07/11/2026 | La traccia dei passi la prendo dal log della sessione | salvare i passi a parte | il log ha già tutto |
+| 09/11/2026 | Se il fornitore va in errore il ciclo si ferma con esito errore_modello | lasciare crashare il programma | groq ha rifiutato un tool con il nome sbagliato e il runner si è fermato a metà |
+| 10/11/2026 | Tengo il giro ufficiale anche se lo scenario 05 ha una conferma sola | cambiare lo scenario e rilanciare tutto | il test è lo stesso per i 3 modelli |

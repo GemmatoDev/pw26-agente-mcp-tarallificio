@@ -1,0 +1,3 @@
+{"ora": "2026-11-10T00:08:04", "sessione": "20261110-000804-058436", "tipo": "richiesta", "testo": "che tempo fa domani a Bari?", "modello": "openai/gpt-oss-120b"}
+{"ora": "2026-11-10T00:08:04", "sessione": "20261110-000804-058436", "tipo": "modello", "iterazione": 1, "testo": "Mi dispiace, ma non ho informazioni sul meteo. Posso aiutarti con dati relativi ai clienti o ai ticket di GemmaTaralli.", "chiamate": [], "token_input": 749, "token_output": 64, "secondi": 0.47}
+{"ora": "2026-11-10T00:08:04", "sessione": "20261110-000804-058436", "tipo": "fine", "esito": "risposta", "iterazioni": 1, "token_input": 749, "token_output": 64}

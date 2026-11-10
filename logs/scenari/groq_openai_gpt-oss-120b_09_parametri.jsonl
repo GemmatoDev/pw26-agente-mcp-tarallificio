@@ -1,0 +1,3 @@
+{"ora": "2026-11-10T00:08:45", "sessione": "20261110-000845-471622", "tipo": "richiesta", "testo": "chiudi l'opportunità 1", "modello": "openai/gpt-oss-120b"}
+{"ora": "2026-11-10T00:08:45", "sessione": "20261110-000845-471622", "tipo": "modello", "iterazione": 1, "testo": "Quale stato desideri impostare per l’opportunità 1: “vinta” o “persa”?", "chiamate": [], "token_input": 749, "token_output": 169, "secondi": 0.48}
+{"ora": "2026-11-10T00:08:45", "sessione": "20261110-000845-471622", "tipo": "fine", "esito": "risposta", "iterazioni": 1, "token_input": 749, "token_output": 169}

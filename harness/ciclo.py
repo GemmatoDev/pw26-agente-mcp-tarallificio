@@ -101,7 +101,12 @@ async def avanza(stato, provider, client):
 
         stato["iterazione"] += 1
         inizio = time.perf_counter()
-        risposta = provider.chiedi(stato["messaggi"], stato["tools"])
+        # se il fornitore va in errore mi fermo senza far crashare tutto
+        try:
+            risposta = provider.chiedi(stato["messaggi"], stato["tools"])
+        except Exception as errore:
+            log.scrivi(stato, "errore_modello", messaggio=str(errore))
+            return fine(stato, "errore_modello", str(errore))
         secondi = round(time.perf_counter() - inizio, 2)
         log.scrivi(stato, "modello", iterazione=stato["iterazione"], testo=risposta.testo, chiamate=risposta.chiamate,
                    token_input=risposta.token_input, token_output=risposta.token_output, secondi=secondi)

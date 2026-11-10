@@ -1,4 +1,4 @@
-﻿data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
+data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
 26/10/2026,Avvio,scelta impresa: ho valutato fornitore IT ma ho scelto tarallificio,0.5,0.4,l'impresa IT era poco coerente con il tema della digitalizzazione dell'impresa,scelta di una PMI manifatturiera alimentare B2B (tarallificio) con tracciabilità di lotto,README.md
 26/10/2026,Avvio,interfaccia + piano,0.5,0.3,la CLI basta per la traccia ma è poco dimostrativa,"interfaccia web per l'uso dell'operatore, runner headless per i test",README.md
 26/10/2026,Avvio,creazione repo GitHub,0.5,0.1,-,,commit d22e369
@@ -33,3 +33,5 @@
 07/11/2026,Harness,runner degli scenari e prima prova con qwen3,1.5,1.5,il modello dice di aver creato un ticket che non esiste,controllato nel log dello scenario,harness/runner.py --- tests/scenari.json
 07/11/2026,Web,pagina con chat conferma e passi,4,4,le graffe di jinja si vedevano aprendo il file a mano,la pagina va aperta dal server su 127.0.0.1:8000,web/app.py --- web/templates/index.html
 08/11/2026,Web,sistemata la traccia dei passi e tolti gli asterischi,0.5,0.5,-,-,web/app.py --- web/templates/index.html
+09/11/2026,Test,errori del fornitore nel ciclo e giro ufficiale dei test,1,0.75,groq rifiuta un tool con il nome sbagliato e il runner crasha,errore del modello gestito nel ciclo come condizione di arresto,harness/ciclo.py
+10/11/2026,Test,controllo dei risultati del giro ufficiale,1,1,qwen3 dice di aver aperto il reclamo ma nel log è annullato,controllo ogni risposta con il log dello scenario,logs/scenari
