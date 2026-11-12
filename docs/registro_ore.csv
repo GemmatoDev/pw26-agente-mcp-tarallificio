@@ -40,3 +40,4 @@ data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
 11/11/2026,Test,readme + creazione banner e requirements,1,2,il readme non spiegava come avviare il progetto e requirements.txt era incompleto,passi di installazione ed esecuzione e versioni di tutte le librerie,README.md --- requirements.txt --- docs/banner.png
 11/11/2026,Rapporto,intestazione e scaletta,1,1,nessuna,-,-
 12/11/2026,Rapporto,diagrammi uml,2,5,nessuna,-,docs/diagrams
+12/11/2026,Rapporto,diagramma di architettura,0.5,0.5,nessuna,-,docs/diagrams
