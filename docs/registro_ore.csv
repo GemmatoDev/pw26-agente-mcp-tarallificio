@@ -43,3 +43,5 @@ data,fase,attivita,ore_previste,ore_reali,difficolta,soluzione,riferimento
 12/11/2026,Rapporto,diagramma di architettura,0.5,0.5,nessuna,-,docs/diagrams
 13/11/2026,Rapporto,stesura del rapporto,4,5,nessuna,-,-
 14/11/2026,Rapporto,stesura del rapporto,4,0.5,nessuna,-,-
+14/11/2026,Rapporto,stesura del rapporto,0,7,nessuna,-,-
+14/11/2026,Rapporto,nuova versione dello schema E/R per il rapporto,0.5,0.5,colori non adatti alla stampa,versione in bianco e nero come gli UML,docs/diagrams/schema_ER_gemmato_pw26_bn.png
