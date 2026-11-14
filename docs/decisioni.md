@@ -51,3 +51,4 @@
 | 10/11/2026 | Nella pagina solo l'icona e il nome scritto in html | logo intero come immagine | a 64 px la scritta del logo non si legge |
 | 10/11/2026 | Tema chiaro fisso nella pagina | tema automatico di Pico | col tema scuro il nome marrone non si legge |
 | 10/11/2026 | Su mobile le parole lunghe vanno a capo dentro le celle | tabella che scorre di lato | si legge tutto senza scorrere |
+| 13/11/2026 | Cambiato il modello principale da qwen3:8b a gemma4:e4b | lasciare qwen3:8b | dopo i test gemma4 è risultato il locale più affidabile |
