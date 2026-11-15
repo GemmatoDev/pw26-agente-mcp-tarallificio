@@ -51,7 +51,7 @@ async def esegui_scenario(scenario, provider, client):
 
 # lancio tutti gli scenari sui modelli passati da terminale
 async def main():
-    modelli = sys.argv[1:] or ["qwen3:8b"]
+    modelli = sys.argv[1:] or ["gemma4:e4b"]
     with open(SCENARI, encoding="utf-8") as file:
         scenari = json.load(file)
 

@@ -12,7 +12,7 @@ from harness.client_mcp import SERVER
 from harness.log import CARTELLA
 from harness.providers import crea_provider
 
-MODELLI = ["qwen3:8b", "gemma4:e4b", "groq/openai/gpt-oss-120b"]
+MODELLI = ["gemma4:e4b", "qwen3:8b", "groq/openai/gpt-oss-120b"]
 
 templates = Jinja2Templates(directory=Path(__file__).resolve().parent / "templates")
 

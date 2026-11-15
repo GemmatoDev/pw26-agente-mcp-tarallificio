@@ -92,7 +92,7 @@ python -m uvicorn web.app:app
 Da terminale, il secondo parametro è il modello (per Groq `groq/openai/gpt-oss-120b`):
 
 ```
-python -m harness.ciclo "chi ha ricevuto il lotto L-26101?" qwen3:8b
+python -m harness.ciclo "chi ha ricevuto il lotto L-26101?" gemma4:e4b
 ```
 
 Test sui tre modelli:

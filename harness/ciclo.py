@@ -123,7 +123,7 @@ async def avanza(stato, provider, client):
 
 # prova da terminale
 async def main():
-    modello = sys.argv[2] if len(sys.argv) > 2 else "qwen3:8b"
+    modello = sys.argv[2] if len(sys.argv) > 2 else "gemma4:e4b"
     provider = crea_provider(modello)
     async with Client(SERVER) as client:
         risultato = await esegui_ciclo(sys.argv[1], provider, client)
