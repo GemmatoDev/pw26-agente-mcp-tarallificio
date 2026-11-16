@@ -47,3 +47,4 @@
 14/11/2026,Rapporto,nuova versione dello schema E/R per il rapporto,0.5,0.5,colori non adatti alla stampa,versione in bianco e nero come gli UML,docs/diagrams/schema_ER_gemmato_pw26_bn.png
 15/11/2026,Rapporto,stesura del rapporto,8,10,nessuna,-,-
 15/11/2026,Chiusura,allineato il modello di default a gemma4,0.25,0.25,il codice partiva ancora con qwen3,cambiato il default in runner ciclo e pagina web,web/app.py
+16/11/2026,Rapporto,stesura del rapporto,8,7,nessuna,-,-
