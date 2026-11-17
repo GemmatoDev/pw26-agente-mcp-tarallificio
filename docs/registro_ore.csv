@@ -48,3 +48,5 @@
 15/11/2026,Rapporto,stesura del rapporto,8,10,nessuna,-,-
 15/11/2026,Chiusura,allineato il modello di default a gemma4,0.25,0.25,il codice partiva ancora con qwen3,cambiato il default in runner ciclo e pagina web,web/app.py
 16/11/2026,Rapporto,stesura del rapporto,8,7,nessuna,-,-
+17/11/2026,Rapporto,stesura del rapporto,8,7.5,nessuna,-,-
+17/11/2026,Chiusura,consegna,0.5,0.5,nessuna,-,-
